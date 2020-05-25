@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Help</class>
+ <widget class="QDialog" name="Help">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>579</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Справка</string>
+  </property>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>581</width>
+     <height>431</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; font-style:italic;&quot;&gt;&lt;br /&gt;Справка по приложению.&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;Данная программа реализована для 7 варианта курсовой работы.&lt;br /&gt;Нажмите на кнопку &amp;quot;File&amp;quot;, далее &amp;quot;Open&amp;quot;, чтобы загрузить изображение.&lt;br /&gt;[ Внимание ] : Программа работает только с изображениями формата BMP 24 бит на один пиксель.&lt;br /&gt;Для сохранения изображения необходимо нажать на кнопку &amp;quot;File&amp;quot;, далее &amp;quot;Save as&amp;quot; и выбрать директорию. Что бы вывести информацию о загруженном изображении - нажмите на кнопку &amp;quot;Help&amp;quot;.&lt;br /&gt;&lt;br /&gt;1) Рисование треугольника. Треугольник определяется координатами его вершин, так же предоставляется возможность выбрать толщину и цвет линий. Данный треугольник может быть залит или же нет. Пользователь так же имеет возможность выбрать цвет заливки.&lt;br /&gt;&lt;br /&gt;2) Находит самый большой прямоугольник заданного цвета и перекрашивает его в другой цвет. Что бы перекрасить прямоугольник, пользователь должен выбрать цвет который он хочет заменить и цвет на который он собирается заменять.&lt;br /&gt;&lt;br /&gt;3) Создается коллаж размером N*M путем склеивания изображения. Коллаж представляет собой это же самое изображение повторяющееся N*M раз.&lt;br /&gt;Пользователь должен ввести количество изображений по &amp;quot;оси&amp;quot; Y и количество изображений по &amp;quot;оси&amp;quot; X.&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Нажав на кнопку &amp;quot;Сбросить&amp;quot; вы возвращаете исходное изображение!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
