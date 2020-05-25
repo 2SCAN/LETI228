@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <QColor>
+#include "mygraphicsview.h"
 
 #pragma pack (push, 1)
 typedef struct
@@ -56,6 +57,7 @@ public:
     int W;
     Rgb** image;
     Rgb** collage_;
+    QPixmap getPixmap();
     int loadImage(const char *file);
 
     int saveImage(const char *file);

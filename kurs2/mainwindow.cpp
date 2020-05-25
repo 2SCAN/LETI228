@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->N->setValidator(new QIntValidator(0, 50, this));
     ui->M->setValidator(new QIntValidator(0, 50, this));
     bmp = new ImageBmp;
+    picture = new MyGraphicView;
 }
 
 MainWindow::~MainWindow()
@@ -60,8 +61,10 @@ void MainWindow::on_ok_clicked()
     if(path != ""){
         if(ui->x0->text() != "" && ui->x1->text() != "" && ui->x2->text() != "" && ui->y0->text() != "" && ui->y1->text() != "" && ui->y2->text() != ""){
             bmp->triangle(ui->y0->text().toInt(), ui->x0->text().toInt(), ui->y1->text().toInt(), ui->x1->text().toInt(), ui->y2->text().toInt(), ui->x2->text().toInt(), ui->spinBox->value(), ui->checkBox->isChecked(), color1, color2);
-            int checher = bmp->saveImage(tmp);
-            ui->bmp->setPixmap(QString(tmp));
+            //int checher = bmp->saveImage(tmp);
+            //ui->bmp->setPixmap(QString(tmp));
+
+            picture->update(bmp->getPixmap());
         } else{
              QMessageBox::about(this, "error", "Вы не ввели данные");
         }
@@ -84,8 +87,9 @@ void MainWindow::on_ok_2_clicked()
                 ui->bmp->resize(bmp->W, bmp->H);
                 ui->bmp->setScaledContents(true);
             }
-            ui->bmp->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-            ui->bmp->setPixmap(QString(tmp));
+            picture->update(bmp->getPixmap());
+            //ui->bmp->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+            //ui->bmp->setPixmap(QString(tmp));
         }else{
             QMessageBox::about(this, "error", "Вы не ввели данные");
         }
@@ -99,7 +103,9 @@ void MainWindow::on_actionOpen_triggered()
     if (path != ""){
         int checher = bmp->loadImage(path.toLocal8Bit());
         if(checher == 0){
-            ui->bmp->setPixmap(path);
+            picture->update(bmp->getPixmap());
+            ui->gridLayout->addWidget(picture);
+
         } else if(checher == -1){
              QMessageBox::about(this, "error", "unknow format bmp");
         } else if(checher == -2){

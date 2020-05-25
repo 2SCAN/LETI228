@@ -6,6 +6,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <imagebmp.h>
+#include "mygraphicsview.h"
 
 
 
@@ -48,6 +49,7 @@ private slots:
     void on_color2_2_clicked();
 
 private:
+    MyGraphicView* picture;
     QString path;
     ImageBmp* bmp;
     char tmp[15] = "tmp.bmp";

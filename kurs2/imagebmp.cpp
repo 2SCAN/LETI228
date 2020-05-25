@@ -70,6 +70,20 @@ int ImageBmp::saveImage(const char *file) {
    return 0;
 }
 
+QPixmap ImageBmp::getPixmap(){
+    QImage *img = new QImage(bmih.width, bmih.height, QImage::Format_RGB16);
+    QColor pixel;
+    for(int i = 0; i < (int)bmih.height; i++){
+        for(int j = 0; j < (int)bmih.width; j++){
+            pixel.setRed(image[i][j].r);
+            pixel.setGreen(image[i][j].g);
+            pixel.setBlue(image[i][j].b);
+            img->setPixel(j, bmih.height - i -1, pixel.rgb());
+        }
+    }
+    return QPixmap::fromImage(*img);
+}
+
 void ImageBmp::draw_line(int y1, int x1, int y2, int x2, QColor color){
     int deltaX = abs(x2 - x1);
     int deltaY = abs(y2 - y1);
