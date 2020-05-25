@@ -84,7 +84,7 @@ QPixmap ImageBmp::getPixmap(){
     return QPixmap::fromImage(*img);
 }
 
-void ImageBmp::draw_line(int y1, int x1, int y2, int x2, QColor color){
+void ImageBmp::draw_line(int x1, int y1, int x2, int y2, QColor color){
     int deltaX = abs(x2 - x1);
     int deltaY = abs(y2 - y1);
     int signX = x1 < x2 ? 1 : -1;
@@ -109,7 +109,7 @@ void ImageBmp::draw_line(int y1, int x1, int y2, int x2, QColor color){
     }
 }
 
-void ImageBmp::triangle(int y1, int x1, int y2, int x2, int x3, int y3, int width, bool Fill, QColor color, QColor FillColor)
+/*void ImageBmp::triangle(int y1, int x1, int y2, int x2, int x3, int y3, int width, bool Fill, QColor color, QColor FillColor)
 {
     if(Fill){
         int xmin = std::min(x3, std::min(x1, x2));
@@ -133,6 +133,11 @@ void ImageBmp::triangle(int y1, int x1, int y2, int x2, int x3, int y3, int widt
     drawLineSize(x1, y1, x2, y2, width, color);
     drawLineSize(x1, y1, x3, y3, width, color);
     drawLineSize(x2, y2, x3, y3, width, color);
+}*/
+void ImageBmp::draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, int thik, QColor color){
+    ImageBmp::drawLineSize(x1, y1, x2, y2, thik, color);
+    ImageBmp::drawLineSize(x2, y2, x3, y3, thik, color);
+    ImageBmp::drawLineSize(x1,y1,x3,y3,thik,color);
 }
 
 void ImageBmp::drawLineSize(int x1, int y1, int x2, int y2, int size, QColor color){

@@ -64,7 +64,8 @@ public:
 
     void draw_line(int y1, int x1, int y2, int x2, QColor color);
 
-    void triangle(int y1, int x1, int y2, int x2, int x3, int y3, int width, bool Fill, QColor color, QColor FillColor);
+    void draw_triangle(int x1, int y1, int x2, int y2, int x3, int y3, int thik, QColor color);
+    int draw_flood_triangle(int x1, int y1, int x2, int y2, int x3, int y3, int thik, QColor floodcolor, QColor edgecolor);
 
     void drawLineSize(int x1, int y1, int x2, int y2, int size, QColor color);
 

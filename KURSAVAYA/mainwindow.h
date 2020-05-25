@@ -10,6 +10,8 @@
 #include "info.h"
 #include "help.h"
 
+#define DRAW_TR 3
+
 namespace Ui {
 class MainWindow;
 }
@@ -25,6 +27,8 @@ public:
     QColor color2;
 
 private slots:
+    void selection();
+
     void on_color1_clicked();
 
     void on_color2_clicked();
@@ -50,6 +54,7 @@ private slots:
     void on_actionHelp_triggered();
 
 private:
+    int button_pressed = 0;
     MyGraphicView* picture;
     QString path;
     ImageBmp* bmp;

@@ -32,6 +32,8 @@ class Ui_MainWindow
 public:
     QAction *actionOpen;
     QAction *actionSave_as;
+    QAction *actionInfo;
+    QAction *actionHelp;
     QWidget *centralWidget;
     QLabel *bmp;
     QLabel *label_2;
@@ -72,6 +74,8 @@ public:
     QGridLayout *gridLayout;
     QMenuBar *menuBar;
     QMenu *menuFile;
+    QMenu *menuHelp;
+    QMenu *menuInfo;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -84,6 +88,10 @@ public:
         actionOpen->setObjectName(QString::fromUtf8("actionOpen"));
         actionSave_as = new QAction(MainWindow);
         actionSave_as->setObjectName(QString::fromUtf8("actionSave_as"));
+        actionInfo = new QAction(MainWindow);
+        actionInfo->setObjectName(QString::fromUtf8("actionInfo"));
+        actionHelp = new QAction(MainWindow);
+        actionHelp->setObjectName(QString::fromUtf8("actionHelp"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         bmp = new QLabel(centralWidget);
@@ -133,11 +141,11 @@ public:
         label_9->setGeometry(QRect(180, 540, 141, 17));
         spinBox = new QSpinBox(centralWidget);
         spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setGeometry(QRect(180, 570, 48, 26));
+        spinBox->setGeometry(QRect(180, 580, 48, 26));
         spinBox->setMinimum(1);
         label_10 = new QLabel(centralWidget);
         label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setGeometry(QRect(180, 610, 161, 17));
+        label_10->setGeometry(QRect(180, 620, 161, 17));
         color1 = new QPushButton(centralWidget);
         color1->setObjectName(QString::fromUtf8("color1"));
         color1->setGeometry(QRect(180, 640, 89, 25));
@@ -149,10 +157,10 @@ public:
         color2->setGeometry(QRect(180, 740, 89, 25));
         label_11 = new QLabel(centralWidget);
         label_11->setObjectName(QString::fromUtf8("label_11"));
-        label_11->setGeometry(QRect(180, 710, 161, 17));
+        label_11->setGeometry(QRect(180, 700, 161, 17));
         checkBox = new QCheckBox(centralWidget);
         checkBox->setObjectName(QString::fromUtf8("checkBox"));
-        checkBox->setGeometry(QRect(180, 680, 92, 23));
+        checkBox->setGeometry(QRect(180, 670, 92, 23));
         checkBox->setMouseTracking(true);
         cancel = new QPushButton(centralWidget);
         cancel->setObjectName(QString::fromUtf8("cancel"));
@@ -180,16 +188,16 @@ public:
         label_15->setGeometry(QRect(430, 510, 181, 17));
         label_16 = new QLabel(centralWidget);
         label_16->setObjectName(QString::fromUtf8("label_16"));
-        label_16->setGeometry(QRect(430, 550, 201, 17));
+        label_16->setGeometry(QRect(430, 540, 201, 17));
         label_17 = new QLabel(centralWidget);
         label_17->setObjectName(QString::fromUtf8("label_17"));
-        label_17->setGeometry(QRect(430, 610, 201, 17));
+        label_17->setGeometry(QRect(430, 610, 241, 17));
         color1_2 = new QPushButton(centralWidget);
         color1_2->setObjectName(QString::fromUtf8("color1_2"));
-        color1_2->setGeometry(QRect(430, 580, 89, 25));
+        color1_2->setGeometry(QRect(430, 570, 89, 25));
         color2_2 = new QPushButton(centralWidget);
         color2_2->setObjectName(QString::fromUtf8("color2_2"));
-        color2_2->setGeometry(QRect(430, 650, 89, 25));
+        color2_2->setGeometry(QRect(430, 640, 89, 25));
         ok_3 = new QPushButton(centralWidget);
         ok_3->setObjectName(QString::fromUtf8("ok_3"));
         ok_3->setGeometry(QRect(430, 700, 89, 25));
@@ -207,6 +215,10 @@ public:
         menuBar->setGeometry(QRect(0, 0, 1158, 22));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
+        menuHelp = new QMenu(menuBar);
+        menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
+        menuInfo = new QMenu(menuBar);
+        menuInfo->setObjectName(QString::fromUtf8("menuInfo"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -216,8 +228,12 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuFile->menuAction());
+        menuBar->addAction(menuHelp->menuAction());
+        menuBar->addAction(menuInfo->menuAction());
         menuFile->addAction(actionOpen);
         menuFile->addAction(actionSave_as);
+        menuHelp->addAction(actionHelp);
+        menuInfo->addAction(actionInfo);
 
         retranslateUi(MainWindow);
 
@@ -229,6 +245,8 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionOpen->setText(QCoreApplication::translate("MainWindow", "Open", nullptr));
         actionSave_as->setText(QCoreApplication::translate("MainWindow", "Save as", nullptr));
+        actionInfo->setText(QCoreApplication::translate("MainWindow", "Info", nullptr));
+        actionHelp->setText(QCoreApplication::translate("MainWindow", "Help", nullptr));
         bmp->setText(QCoreApplication::translate("MainWindow", "                                                                                                                                                       \320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\320\265 \320\270\320\267\320\276\320\261\321\200\320\260\320\266\320\265\320\275\320\270\320\265 \"File\"", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "\320\242\321\200\320\265\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "x1", nullptr));
@@ -237,25 +255,27 @@ public:
         label_6->setText(QCoreApplication::translate("MainWindow", "y2", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "x3", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "y3", nullptr));
-        label_9->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\202\320\276\320\273\321\211\320\270\320\275\321\203", nullptr));
-        label_10->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\206\320\262\320\265\321\202 \320\273\320\270\320\275\320\270\320\271", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\202\320\276\320\273\321\211\320\270\320\275\321\203 :", nullptr));
+        label_10->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\206\320\262\320\265\321\202 \320\273\320\270\320\275\320\270\320\271 :", nullptr));
         color1->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214", nullptr));
         ok->setText(QCoreApplication::translate("MainWindow", "\320\237\321\200\320\270\320\274\320\265\320\275\320\270\321\202\321\214", nullptr));
         color2->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214", nullptr));
-        label_11->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\206\320\262\320\265\321\202 \320\267\320\260\320\273\320\270\320\262\320\272\320\270", nullptr));
+        label_11->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\206\320\262\320\265\321\202 \320\267\320\260\320\273\320\270\320\262\320\272\320\270 :", nullptr));
         checkBox->setText(QCoreApplication::translate("MainWindow", "\320\227\320\260\320\273\320\270\320\262\320\272\320\260", nullptr));
         cancel->setText(QCoreApplication::translate("MainWindow", "\320\241\320\261\321\200\320\276\321\201\320\270\321\202\321\214", nullptr));
         label_12->setText(QCoreApplication::translate("MainWindow", "\320\232\320\276\320\273\320\273\320\260\320\266", nullptr));
-        label_13->setText(QCoreApplication::translate("MainWindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\272\320\276\320\273\320\270\321\207\320\265\321\201\321\202\320\262\320\276 \320\277\320\276 \320\263\320\276\321\200\320\270\320\267\320\276\320\275\321\202\320\260\320\273\320\270", nullptr));
-        label_14->setText(QCoreApplication::translate("MainWindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\272\320\276\320\273\320\270\321\207\320\265\321\201\321\202\320\262\320\276 \320\277\320\276 \320\262\320\265\321\200\321\202\320\270\320\272\320\260\320\273\320\270", nullptr));
+        label_13->setText(QCoreApplication::translate("MainWindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\272\320\276\320\273\320\270\321\207\320\265\321\201\321\202\320\262\320\276 \320\277\320\276 \320\262\320\265\321\200\321\202\320\270\320\272\320\260\320\273\320\270 :", nullptr));
+        label_14->setText(QCoreApplication::translate("MainWindow", "\320\222\320\262\320\265\320\264\320\270\321\202\320\265 \320\272\320\276\320\273\320\270\321\207\320\265\321\201\321\202\320\262\320\276 \320\277\320\276 \320\263\320\276\321\200\320\270\320\267\320\276\320\275\321\202\320\260\320\273\320\270 :", nullptr));
         ok_2->setText(QCoreApplication::translate("MainWindow", "\320\237\321\200\320\270\320\274\320\265\320\275\320\270\321\202\321\214", nullptr));
         label_15->setText(QCoreApplication::translate("MainWindow", "\320\237\320\276\320\270\321\201\320\272 \320\277\321\200\321\217\320\274\320\276\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272\320\260", nullptr));
-        label_16->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\206\320\262\320\265\321\202 \320\264\320\273\321\217 \320\277\320\276\320\270\321\201\320\272\320\260", nullptr));
-        label_17->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\206\320\262\320\265\321\202 \320\264\320\273\321\217 \320\277\320\265\321\200\320\265\320\272\321\200\320\260\321\210\320\270\320\262\320\260\320\275\320\270\321\217", nullptr));
+        label_16->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\206\320\262\320\265\321\202 \320\264\320\273\321\217 \320\277\320\276\320\270\321\201\320\272\320\260 :", nullptr));
+        label_17->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \321\206\320\262\320\265\321\202 \320\264\320\273\321\217 \320\277\320\265\321\200\320\265\320\272\321\200\320\260\321\210\320\270\320\262\320\260\320\275\320\270\321\217 :", nullptr));
         color1_2->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214", nullptr));
         color2_2->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\321\200\320\260\321\202\321\214", nullptr));
         ok_3->setText(QCoreApplication::translate("MainWindow", "\320\237\321\200\320\270\320\274\320\265\320\275\320\270\321\202\321\214", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
+        menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));
+        menuInfo->setTitle(QCoreApplication::translate("MainWindow", "Info", nullptr));
     } // retranslateUi
 
 };

@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     picture = new MyGraphicView;
     Inform = new Info;
     help = new Help;
+    connect(picture, SIGNAL(selection()),this, SLOT(selection()));
 }
 
 MainWindow::~MainWindow()
@@ -54,19 +55,26 @@ void MainWindow::on_cancel_clicked(){
 }
 #include <QDebug>
 
-
+void MainWindow::selection(){
+    if(button_pressed == DRAW_TR){
+        bmp->draw_triangle(bmp->bmih.height-picture->tre[0].y, picture->tre[0].x, bmp->bmih.height-picture->tre[1].y, picture->tre[1].x, bmp->bmih.height-picture->tre[2].y, picture->tre[2].x, ui->spinBox->value(), color1);
+        picture->update(bmp->getPixmap());
+    }
+}
 
 
 void MainWindow::on_ok_clicked()
 {
-    if(path != ""){
-        if(ui->x0->text() != "" && ui->x1->text() != "" && ui->x2->text() != "" && ui->y0->text() != "" && ui->y1->text() != "" && ui->y2->text() != ""){
-            bmp->triangle(ui->y0->text().toInt(), ui->x0->text().toInt(), ui->y1->text().toInt(), ui->x1->text().toInt(), ui->y2->text().toInt(), ui->x2->text().toInt(), ui->spinBox->value(), ui->checkBox->isChecked(), color1, color2);
-            picture->update(bmp->getPixmap());
-        } else{
-             QMessageBox::about(this, "error", "Вы не ввели данные");
+
+        if(bmp->bmih.width == 0 || bmp->bmih.height == 0){
+            QMessageBox::critical(this,"Ошибка!", "загрузите изображение");
+            return;
         }
-    }
+            button_pressed = DRAW_TR;
+            picture->botton_pressed = DRAW_TR;
+            picture->flag = 0;
+
+
 }
 
 void MainWindow::on_ok_2_clicked()

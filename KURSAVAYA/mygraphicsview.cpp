@@ -13,13 +13,13 @@ void MyGraphicView::update(QPixmap pixmap){
 }
 
 void MyGraphicView::mousePressEvent(QMouseEvent *event){
-    /*QPoint pos = mapToScene(event->pos()).toPoint();
+    QPoint pos = mapToScene(event->pos()).toPoint();
     clicked.x1 = pos.x();
-    clicked.y1 = pos.y();*/
+    clicked.y1 = pos.y();
 }
 
 void MyGraphicView::mouseReleaseEvent(QMouseEvent *event){
-    /*QPoint pos = mapToScene(event->pos()).toPoint();
+    QPoint pos = mapToScene(event->pos()).toPoint();
     clicked.x2 = pos.x();
     clicked.y2 = pos.y();
     if(botton_pressed == DRAW_TR && flag !=3){
@@ -30,5 +30,5 @@ void MyGraphicView::mouseReleaseEvent(QMouseEvent *event){
             botton_pressed = 0;
     }
     if(botton_pressed == 0)
-        emit selection();*/
+        emit selection();
 }
